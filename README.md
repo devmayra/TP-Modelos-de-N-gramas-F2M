@@ -15,7 +15,7 @@ Trabajo práctico sobre modelos de N-gramas aplicados a un corpus real en españ
 ## ¿Qué hace el código?
 
 1. **Lee el corpus** desde `CorpusEducacion.txt` (36 opiniones de alumnos)
-2. **Preprocesa** cada oración: tokenización, eliminación de stop words en español y stemming
+2. **Preprocesa** cada oración: tokenización, eliminación de stop words en español y lematización
 3. **Calcula bigramas y trigramas** usando `CountVectorizer` de scikit-learn con `min_df=2`
 4. **Grafica** la comparación de frecuencias entre ambos tipos de n-gramas
 
@@ -25,7 +25,7 @@ Trabajo práctico sobre modelos de N-gramas aplicados a un corpus real en españ
 
 ```
 ├── tp_ngramas.py          # código principal organizado en funciones
-├── CorpusEducacion.txt    # corpus: opiniones de alumnos colombianos (2025)
+├── CorpusEducacion.txt    # corpus: opiniones de estudiantes colombianos 
 └── README.md
 ```
 
@@ -34,10 +34,17 @@ Trabajo práctico sobre modelos de N-gramas aplicados a un corpus real en españ
 ## Requisitos
 
 ```bash
-pip install nltk scikit-learn matplotlib pandas
+pip install nltk scikit-learn matplotlib pandas spacy
 ```
 
-También descargar los recursos de NLTK (se ejecutan automáticamente al correr el script):
+Además, es necesario instalar el modelo de español de spaCy:
+
+```bash
+python -m spacy download es_core_news_sm
+```
+
+Los recursos de NLTK se descargan automáticamente al ejecutar el script:
+
 ```python
 nltk.download("stopwords")
 nltk.download("punkt_tab")
@@ -51,7 +58,7 @@ Antes de calcular los n-gramas, cada oración pasa por tres etapas:
 
 - **Tokenización:** separa el texto en palabras individuales
 - **Stop words:** elimina palabras sin valor semántico (el, la, que, de...)
-- **Stemming:** reduce cada palabra a su raíz (`educación` → `educ`, `sueño` → `sueñ`)
+- **Lematización:** transforma las palabras a su forma base o lema (estudiantes → estudiante, estudiando → estudiar).
 
 ---
 
@@ -61,7 +68,7 @@ Los bigramas más frecuentes del corpus reflejan los temas centrales de las opin
 
 | N-grama | Frecuencia |
 |---|---|
-| sueñ educ | 15 |
-| educ calid | 7 |
-| educ sueñ | 6 |
-| institu educ | 4 |
+| sueño educación | 15 |
+| educación calidad | 7 |
+| educación sueño | 6 |
+| institución educativo | 4 |
