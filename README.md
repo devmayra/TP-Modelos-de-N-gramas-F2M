@@ -1,8 +1,8 @@
 # TP — Modelos de N-gramas en PLN
 
-**Materia:** Técnicas de Procesamiento del Habla
-**Bloque:** Modelos y Clasificación
-**Unidad:** 2
+- **Materia:** Técnicas de Procesamiento del Habla
+- **Bloque:** Modelos y Clasificación
+- **Unidad:** 2
 
 ---
 
